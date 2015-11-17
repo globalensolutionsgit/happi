@@ -965,7 +965,7 @@
 	/* comment/contact form */
 	.comment-form .inputtext,
 	.comment-form .textarea {
-		width:255px}
+		width:425px}
 	.comment-form .space {
 		width:20px}
 	.comment-form .input_full,
@@ -1902,7 +1902,9 @@
 	.post-list .post-item h2 {
 		font-size:32px}
 	.post-detail h1 {
-		font-size:37px}
+		font-size:37px;
+		color:#16A19A;
+	}
 
 	/* post comments */
 	.comment-avatar {
