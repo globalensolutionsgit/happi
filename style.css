@@ -120,7 +120,9 @@ table {
 html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; -webkit-font-smoothing: antialiased}
 
 img { max-width:100% !important}
-
+.list_item .item_img img{
+	height: 226px;
+}
 /*----------------------------------------------*/
 /* 1.2 General Styles */
 /*----------------------------------------------*/

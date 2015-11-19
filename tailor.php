@@ -121,5 +121,63 @@
         <div class="clear"></div>
     </div>
 </div>
+<script type="text/javascript">
+$(document).ready(function(){
+
+  $('.error').hide();
+ $("#send").click(function(event){
+         $('.error').hide();
+          var name = $('input[name="yourname"]').val();
+          if (name == "") {
+           
+            $("label#name_error").show();
+            $("input#name").focus();
+            return false;
+          }
+          var email = $('input[name="email"]').val();
+          var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+           if( !emailReg.test( email ) ) {
+           
+            $("label#email_error").show();
+            $("input#email").focus();
+            return false;
+          }
+         
+          var source = $('input[name="source"]').val();
+          if (source == "") {
+            $("label#source_error").show();
+            $("input#source").focus();
+            return false;
+          }
+          var destination = $('input[name="destination"]').val();
+          if (destination == "") {
+            $("label#destination_error").show();
+            $("input#destination").focus();
+            return false;
+          }
+          var date = $('input[name="date"]').val();
+          if (date == "") {
+            $("label#date_error").show();
+            $("input#date").focus();
+            return false;
+          }
+          var pax = $('input[name="pax"]').val();
+          if (pax == "") {
+            $("label#pax_error").show();
+            $("input#pax").focus();
+            return false;
+          }
+          var mobile = $('input[name="mobile"]').val();
+          var mobile_val= (mobile).length;
+          
+          if (mobile_val != 10 ){
+             
+              $("label#mobile_error").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          });
+});
+</script>
 <!--/ middle -->
 <?php include("footer.php"); ?>

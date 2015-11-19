@@ -20,7 +20,7 @@
 
                         <div class="list_item">
                         	<div class="item_img">
-                            <img src="images/temp/offer_01.jpg" alt="">
+                            <img src="images/tour/international/singapore.jpg" alt="">
                             <p class="caption"><span class="price"><strong>SIZZLING SINGAPORE</strong></span></p>
                             <a href="#" class="link-img">more...</a>
                             </div>
@@ -28,7 +28,7 @@
 
                         <div class="list_item">
                         	<div class="item_img">
-                            <img src="images/temp/offer_02.jpg" alt="">
+                            <img src="images/tour/international/malaysia.jpg" alt="">
                             <p class="caption"><span class="price"><strong>MAJESTIC MALAYSIA</strong></span></p>
                             <a href="#" class="link-img">more...</a>
                             </div>
@@ -36,7 +36,7 @@
 
                         <div class="list_item">
                         	<div class="item_img">
-                            <img src="images/temp/offer_03.jpg" alt="">
+                            <img src="images/tour/international/thailand'.jpg" alt="">
                         	<p class="caption"><span class="price"><strong>THAILAND GETAWAY</strong></span></p>
                             <a href="#" class="link-img">more...</a>
                             </div>
@@ -44,7 +44,7 @@
 
                         <div class="list_item">
                         	<div class="item_img">
-                            <img src="images/temp/offer_04.jpg" alt="">
+                            <img src="images/tour/international/dubai.jpg" alt="">
                             <p class="caption"><span class="price"><strong>DAZZLING DUBAI</strong></span></p>
                             <a href="#" class="link-img">more...</a>
                             </div>
@@ -52,7 +52,7 @@
 
                         <div class="list_item">
                         	<div class="item_img">
-                            <img src="images/temp/offer_05.jpg" alt="">
+                            <img src="images/tour/international/srilanka.jpg" alt="">
                             <p class="caption"><span class="price"><strong>BEST OF SRILANKA</strong></span></p>
                             <a href="#" class="link-img">more...</a>
                             </div>

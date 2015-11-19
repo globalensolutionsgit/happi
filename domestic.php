@@ -36,7 +36,7 @@
 
 	                        <div class="list_item">
 	                        	<div class="item_img">
-	                            <img src="images/tour/domestic/westIndia.png" alt="">
+	                            <img src="images/tour/domestic/westIndia.png" alt="" width="300">
 	                            <p class="caption"><span class="price"><strong>WESTERN INDIA TOURS</strong></span></p>
 	                            <a href="#" class="link-img">more...</a>
 	                            </div>

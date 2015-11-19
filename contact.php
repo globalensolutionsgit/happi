@@ -60,6 +60,7 @@
                                 <div class="row alignleft">
                                     <label><strong>Name</strong></label>
                                     <input type="text" name="yourname" id="name" value="" class="inputtext input_middle required">
+                                    <label class="error" for="name" id="name_error" style="color:red;">Please enter the name.</label>
                                 </div>
 
                                 <div class="space"></div>
@@ -67,6 +68,7 @@
                                 <div class="row  alignleft">
                                     <label><strong>Email</strong> (never published)</label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
+                                    <label class="error" for="name" id="email_error" style="color:red;">Please enter the email</label>
                                 </div>
 
                                 <div class="clear"></div>
@@ -74,11 +76,13 @@
                                 <div class="row">
                                     <label><strong>Website</strong></label>
                                     <input type="text" name="url" id="url" value="" class="inputtext input_full">
+                                    <label class="error" for="url" id="url_error" style="color:red;">Please enter the url</label>
                                 </div>
 
                                  <div class="row">
                                     <label><strong>Comment</strong></label>
-                                    <textarea cols="30" rows="10" name="message" class="textarea textarea_middle required"></textarea>
+                                    <textarea cols="30" rows="10" name="message" id="message" class="textarea textarea_middle required"></textarea>
+                                    <label class="error" for="message" id="message_error" style="color:red;">Please enter the source</label>
                                 </div>
 
                                 <div class="row rowSubmit">
@@ -131,5 +135,37 @@
         <div class="clear"></div>
     </div>
 </div>
+<script type="text/javascript">
+   $('.error').hide();
+ $("#send").click(function(event){
+         $('.error').hide();
+          var name = $('input[name="yourname"]').val();
+          if (name == "") {
+            $("label#name_error").show();
+            $("input#name").focus();
+            return false;
+          }
+           var email = $('input[name="email"]').val();
+          var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+           if( !emailReg.test( email ) ) {
+           
+            $("label#email_error").show();
+            $("input#email").focus();
+            return false;
+          }
+          var url = $('input[name="url"]').val();
+          if (url == "") {
+            $("label#url_error").show();
+            $("input#url").focus();
+            return false;
+          }
+          var message = $('#message').val();
+          if (message == "") {
+            $("label#message_error").show();
+            $("input#message").focus();
+            return false;
+          }
+          }); 
+</script>
 <!--/ middle -->
 <?php include("footer.php"); ?>
