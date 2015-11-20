@@ -18,7 +18,7 @@
 	       	    <h1>About our <span>Happi Journey</span></h1>
 
 	            <div class="entry">
-	           		<p><img src="images/home/B8.jpg" alt=""></p>
+	           		<p><img src="images/home/aboutus.jpg" alt=""></p>
 		           	<p>Happi Journey is a leading and reputable tourism company in Chennai with the branch in Pondicherry. We are delivering high quality of inbound and outbound tour services. We serve with the motive of giving utmost satisfaction in any services rendered. Our mission is to retain our existing customer by exceeding their expectation level.</p>
                     <br><br><br>
                     <div class="clear"></div>
