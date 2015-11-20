@@ -67,9 +67,10 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
                                     <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
 
 								<div class="clear"></div>
@@ -77,12 +78,14 @@
 								<div class="row">
                                     <label><strong>Destination</strong></label>
                                     <input type="text" name="destination" id="destination" value="" class="inputtext input_full_edit required">
+                                          <label class="error" for="name" id="destination_error" style="color:red;">Please enter the destination </label>
+                                    <label class="error1" for="destination" id="destination_error1" style="color:red;">Please enter the valid destination</label>
                                 </div>
 								<div class="clear"></div>
 
 								<div class="row">
                                     <label><strong>Date</strong></label>
-                                    <input type="text" name="date" id="date" value="" class="inputtext input_full_edit required">
+                                    <input type="date" name="date" id="date" value="" class="inputtext input_full_edit required" readonly="readonly">
                                     <label class="error" for="date" id="date_error" style="color:red;">Please enter the date </label>
                                 </div>
 
@@ -116,8 +119,10 @@
 </div>
 <script type="text/javascript">
     $('.error').hide();
+    $('.error1').hide();
  $("#send").click(function(event){
          $('.error').hide();
+         $('.error1').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
             $("label#name_error").show();
@@ -128,7 +133,7 @@
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
-            $("label#email_error").show();
+            $("label#email_error1").show();
             $("input#email").focus();
             return false;
           }
@@ -138,10 +143,16 @@
             $("input#email").focus();
             return false;
           }
-         var Destination = $('input[name="Destination"]').val();
-          if (Destination == "") {
-            $("label#Destination_error").show();
-            $("input#Destination").focus();
+         var destination = $('input[name="destination"]').val();
+          var regex = /^[a-zA-Z ]*$/;
+          if(!regex.test(destination)){
+            $("label#destination_error1").show();
+            $("input#destination").focus();
+            return false;
+          }
+          if (destination == "") {
+            $("label#destination_error").show();
+            $("input#destination").focus();
             return false;
           }
           var mobile = $('input[name="mobile"]').val();
