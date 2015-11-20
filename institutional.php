@@ -184,13 +184,7 @@ $(document).ready(function(){
             $("input#message").focus();
             return false;
           }
-          var person = $('input[name="person"]').val();
-          if (person == "") {
-            $("label#person_error").show();
-            $("input#person").focus();
-            return false;
-          }
-          var mobile = $('input[name="mobile"]').val();
+           var mobile = $('input[name="mobile"]').val();
           var mobile_val= (mobile).length;
           
           if (mobile_val != 10 ){
@@ -205,7 +199,20 @@ $(document).ready(function(){
               $("input#mobile").focus();
               return false;
           }
-          });
+        
+          var person = $('input[name="person"]').val();
+          var regex = /^[a-zA-Z ]*$/;
+          if(!regex.test(person)){ 
+            $("label#person_error").show();
+            $("input#person").focus();
+            return false;
+          }
+          if (person == "") {
+            $("label#person_error").show();
+            $("input#person").focus();
+            return false;
+          }
+      });     
 });
 </script>
 <!--/ middle -->

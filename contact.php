@@ -66,11 +66,11 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
-                                    <label class="error" for="name" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
-
                                 <div class="clear"></div>
 
                                 <div class="row">
@@ -86,7 +86,7 @@
                                 </div>
 
                                 <div class="row rowSubmit">
-	                                <input type="submit" value="Send Message" class="btn-submit" name="submit">
+	                                <input type="submit" value="Send Message" class="btn-submit" name="submit" id="send">
 	                                <a onclick="document.getElementById('commentForm').reset();return false" href="#" class="link-reset">Reset all fields</a>
                              	</div>
                             </form>
@@ -136,8 +136,11 @@
     </div>
 </div>
 <script type="text/javascript">
+$(document).ready(function(){
    $('.error').hide();
+   $('.error1').hide();
  $("#send").click(function(event){
+ 
          $('.error').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
@@ -149,7 +152,7 @@
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
-            $("label#email_error").show();
+            $("label#email_error1").show();
             $("input#email").focus();
             return false;
           }
@@ -172,6 +175,7 @@
             return false;
           }
           }); 
+});
 </script>
 <!--/ middle -->
 <?php include("footer.php"); ?>
