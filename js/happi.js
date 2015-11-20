@@ -5,5 +5,6 @@ jQuery(document).ready(function(){
 
     //jquery for dynamic height for slider image height
     var slide_hi8 = $(window).height()-163;
-    $('.header_slider .slides_container, .header_slider .slide').css("height",slide_hi8);
+	$('.slide img').css({height:slide_hi8});
+	$('.header_slider .slides_container, .header_slider .slides_control,.header_slider .slides_control').css("height",slide_hi8);
 });

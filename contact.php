@@ -1,5 +1,38 @@
 <?php include("header.php"); ?>
-
+<script src="https://maps.googleapis.com/maps/api/js?v=3.expsigned_in=true"></script>
+  <script>
+	  function initialize() {
+		  var myLatlng = new google.maps.LatLng(13.0764846,80.235458);
+		  var mapOptions = {
+		  zoom: 15,
+		  center: myLatlng
+	  };
+	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+	  var contentString = '<div id="content">'+
+	  '<div id="siteNotice">'+
+	  '</div>'+
+	  '<div id="bodyContent">'+
+	  '<p><b>Happijourney</b></b></p>'+
+	  '<p>No.144,Mount Poonamallee High Road,</p>'+
+	  '<p>Ayyapanthangal,Chennai-600056</p>'+
+	  '<p>info@happijourney.com</p>'+
+	  '<p>+91-9962511220</p>'+
+	  '</div>'+
+	  '</div>';
+	  var infowindow = new google.maps.InfoWindow({
+		  content: contentString
+	  });
+	  var marker = new google.maps.Marker({
+		  position: myLatlng,
+		  map: map,
+		  title: 'happijourney'
+	  });
+	  google.maps.event.addListener(marker, 'click', function() {
+		  infowindow.open(map,marker);
+	  });
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize);
+  </script>
 <div id="middle" class="cols2">
 	<div class="container_12">
 
@@ -126,7 +159,7 @@
 	        <!--/ widget_contact -->
 
             <div class="contact-map">
-				<img src="images/temp/map.gif" alt="">
+				<div id="map-canvas"></div>
             </div>
 
         </div>
@@ -148,7 +181,7 @@
            var email = $('input[name="email"]').val();
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
-           
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
@@ -165,7 +198,7 @@
             $("input#message").focus();
             return false;
           }
-          }); 
+          });
 </script>
 <!--/ middle -->
 <?php include("footer.php"); ?>

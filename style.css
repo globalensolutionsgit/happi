@@ -5230,3 +5230,16 @@ ul.thumbs li .caption {
 
 .valid{border:1px solid #70A41B!important; overflow:hide;} /*#70A41B*/
 .error{overflow:hide; border:1px solid red!important;}
+/*google map*/
+.contact-map{
+	position: relative;
+}
+#map-canvas {
+    height: 250px;
+    line-height:.3em;
+    width:300px;
+    margin: 0px;
+    padding: 0px;
+    position:absolute;
+	color:#000!important;
+}
