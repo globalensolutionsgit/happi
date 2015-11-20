@@ -45,7 +45,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			   echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -70,10 +70,10 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
-
-									<label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
 
 								<div class="clear"></div>
@@ -82,7 +82,7 @@
                                     <label><strong>Country to Travel</strong></label>
                                     <input type="text" name="country" id="country" value="" class="inputtext input_full_edit required">
 
-									<label class="error" for="country" id="country_error" style="color:red;">Please enter the email</label>
+									<label class="error" for="country" id="country_error" style="color:red;">Please enter the country</label>
                                 </div>
 
 								<div class="clear"></div>
@@ -90,6 +90,7 @@
 								<div class="row">
                                     <label><strong>Contact Number</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
+                                    <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                     <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label>
                                 </div>
 
@@ -115,6 +116,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.error').hide();
+  $('.error1').hide();
  $("#send").click(function(event){
          $('.error').hide();
           var name = $('input[name="yourname"]').val();
@@ -127,6 +129,12 @@ $(document).ready(function(){
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
+            $("label#email_error1").show();
+            $("input#email").focus();
+            return false;
+          }
+          if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
@@ -143,6 +151,12 @@ $(document).ready(function(){
           
           if (mobile_val != 10 ){
              
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;

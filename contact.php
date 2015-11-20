@@ -41,7 +41,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			   echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -149,6 +149,12 @@
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
+            $("label#email_error").show();
+            $("input#email").focus();
+            return false;
+          }
+          if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;

@@ -44,7 +44,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			  echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -69,16 +69,17 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
                                     <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
 
 								<div class="clear"></div>
 
 								<div class="row">
                                     <label><strong>No.of Guest</strong></label>
-                                    <input type="text" name="guest" id="guest" value="" class="inputtext input_full_edit required">
+                                    <input type="number" name="guest" id="guest" value="" class="inputtext input_full_edit required">
                                     <label class="error" for="guest" id="guest_error" style="color:red;">Please enter the number of  guest</label>
                                 </div>
 
@@ -94,7 +95,7 @@
 
 								<div class="row">
                                     <label><strong>Date</strong></label>
-                                    <input type="text" name="date" id="date_in" value="" class="inputtext input_full_edit required">
+                                    <input type="date" name="date" id="date_in" value="" class="inputtext input_full_edit required" readonly="readonly">
                                     <label class="error" for="date" id="date_error" style="color:red;">Please enter the date.</label>
                                 </div>
 
@@ -103,6 +104,7 @@
 								<div class="row">
                                     <label><strong>Contact Number</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
+                                     <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                      <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label>
                                 </div>
 
@@ -111,6 +113,7 @@
 								<div class="row">
 									<label><strong>Contact Person</strong></label>
 									<input type="text" name="person" id="person" value="" class="inputtext input_full_edit required">
+                  <label class="error" for="person" id="person_error" style="color:red;">Please enter the person </label>
 								</div>
 
                                 <div class="row rowSubmit">
@@ -135,8 +138,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.error').hide();
+  $('.error1').hide();
  $("#send").click(function(event){
          $('.error').hide();
+         $('.error1').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
             $("label#name_error").show();
@@ -147,11 +152,16 @@ $(document).ready(function(){
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
+            $("label#email_error1").show();
+            $("input#email").focus();
+            return false;
+          }
+         if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
           }
-         
           var guest = $('input[name="guest"]').val();
           if (guest == "") {
             $("label#guest_error").show();
@@ -176,9 +186,27 @@ $(document).ready(function(){
           
           if (mobile_val != 10 ){
              
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;
+          }
+          var person = $('input[name="person"]').val();
+          var regex = /^[a-zA-Z ]*$/;
+          if(!regex.test(person)){ 
+            $("label#person_error").show();
+            $("input#person").focus();
+            return false;
+          }
+          if (person == "") {
+            $("label#person_error").show();
+            $("input#person").focus();
+            return false;
           }
           });
           });

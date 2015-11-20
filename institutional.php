@@ -44,7 +44,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			   echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -70,24 +70,25 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
                                     <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
-
                                 <div class="clear"></div>
 
 								<div class="row">
                                     <label><strong>Destination</strong></label>
                                     <input type="text" name="destination" id="destination" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="destination" id="destination_error" style="color:red;">Please enter the destination </label>
+                                     <label class="error" for="destination" id="destination_error" style="color:red;">Please enter the destination </label>
+                                     <label class="error1" for="destination" id="destination_error1" style="color:red;">Please enter the valid destination</label>
                                 </div>
 
 								<div class="clear"></div>
 
 								<div class="row">
                                     <label><strong>Number of Days</strong></label>
-                                    <input type="text" name="days" id="days" value="" class="inputtext input_full_edit required">
+                                    <input type="number" name="days" id="days" value="" class="inputtext input_full_edit required">
                                     <label class="error" for="days" id="days_error" style="color:red;">Please enter the days </label>
                                 </div>
 
@@ -95,8 +96,8 @@
 
 								<div class="row">
 								   <label><strong>IV details(Department)</strong></label>
-								   <textarea cols="30" rows="10" name="message" class="textarea_edit textarea_middle required"></textarea>
-								   <label class="error" for="message" id="message_error" style="color:red;">Please enter the source</label>
+								   <textarea cols="30" rows="10" name="message" id="message" class="textarea_edit textarea_middle required"></textarea>
+								   <label class="error" for="message" id="message_error" style="color:red;">Please enter the message</label>
 							   </div>
 
 							   	<div class="clear"></div>
@@ -104,6 +105,7 @@
 								<div class="row">
                                     <label><strong>Mobile NO.</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
+                                    <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                      <label class="error" for="name" id="mobile_error" style="color:red;">Please enter the mobile number </label>
                                 </div>
 
@@ -136,8 +138,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.error').hide();
+  $('.error1').hide();
  $("#send").click(function(event){
          $('.error').hide();
+         $('.error1').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
             $("label#name_error").show();
@@ -146,12 +150,23 @@ $(document).ready(function(){
           }
           var email = $('input[name="email"]').val();
           if (email == "") {
+            $("label#email_error1").show();
+            $("input#email").focus();
+            return false;
+          }
+          if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
           }
-          
           var destination = $('input[name="destination"]').val();
+          var regex = /^[a-zA-Z ]*$/;
+          if(!regex.test(destination)){
+            $("label#destination_error1").show();
+            $("input#destination").focus();
+            return false;
+          }
           if (destination == "") {
             $("label#destination_error").show();
             $("input#destination").focus();
@@ -163,11 +178,11 @@ $(document).ready(function(){
             $("input#days").focus();
             return false;
           }
-          var message = $('input[name="message"]').val();
+          var message = $('#message').val();
           if (message == "") {
             $("label#message_error").show();
             $("input#message").focus();
-            return false;message
+            return false;
           }
           var person = $('input[name="person"]').val();
           if (person == "") {
@@ -180,6 +195,12 @@ $(document).ready(function(){
           
           if (mobile_val != 10 ){
              
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;

@@ -42,7 +42,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			   echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -91,6 +91,7 @@
 								<div class="row">
                                     <label><strong>Contact Number</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
+                                    <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                     <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label>
                                 </div>
 
@@ -131,7 +132,12 @@
             $("input#email").focus();
             return false;
           }
-         
+         if (email == ""){
+
+            $("label#email_error").show();
+            $("input#email").focus();
+            return false;
+          }
          var Destination = $('input[name="Destination"]').val();
           if (Destination == "") {
             $("label#Destination_error").show();
@@ -143,11 +149,16 @@
           
           if (mobile_val != 10 ){
              
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;
           }
-          
           var date = $('input[name="date"]').val();
           if (date == "") {
             $("label#date_error").show();

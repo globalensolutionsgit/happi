@@ -43,7 +43,8 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			  echo "Thank you for contacting us! Our representative will contact you.";
+
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -68,10 +69,12 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
-                                    <label class="error" for="email" id="email_error" style="color:red;">Please enter the email.</label>
+                                    <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
+
 
 								<div class="clear"></div>
 
@@ -85,7 +88,22 @@
 
 								<div class="row">
                                     <label><strong>Month of travel</strong></label>
-                                    <input type="text" name="month" id="month" value="" class="inputtext input_full_edit required">
+                                    <select name="month" id="month" value="" class="inputtext input_full_edit required">
+                                      <option value= "1">Jan</option>
+                                      <option value= "2">Feb</option>
+                                      <option value= "3">Mar</option>
+                                      <option value= "4">Apr</option>
+                                      <option value= "5">May</option>
+                                      <option value= "6">Jun</option>
+                                      <option value= "7">Jul</option>
+                                      <option value= "8">Aug</option>
+                                      <option value= "9">Sep</option>
+                                      <option value= "10">Oct</option>
+                                       <option value= "11">Nov</option>
+                                        <option value= "12">Dec</option>
+
+                                    </select>
+                                    
                                     <label class="error" for="month" id="month_error" style="color:red;">Please enter the month.</label>
                                 </div>
 
@@ -93,8 +111,8 @@
 
 								<div class="row">
                                     <label><strong>Number of pax</strong></label>
-                                    <input type="text" name="pax" id="pax" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="name" id="name_error" style="color:red;">Please enter the name.</label>
+                                    <input type="number" name="pax" id="pax" value="" class="inputtext input_full_edit required">
+                                    <label class="error" for="pax" id="pax_error" style="color:red;">Please enter the pax.</label>
                                 </div>
 
 								<div class="clear"></div>
@@ -102,7 +120,8 @@
 								<div class="row">
                                     <label><strong>Contact Number</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="name" id="name_error" style="color:red;">Please enter the name.</label>
+                                    <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile.</label>
+                                    <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                 </div>
 
                                 <div class="row rowSubmit">
@@ -126,11 +145,12 @@
     </div>
 </div>
 <script type="text/javascript">
-$(document).ready(function(){
 
+$('.error1').hide();
   $('.error').hide();
  $("#send").click(function(event){
          $('.error').hide();
+         $('.error1').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
             
@@ -142,17 +162,25 @@ $(document).ready(function(){
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
            
+            $("label#email_error1").show();
+            $("input#email").focus();
+            return false;
+          }
+          if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
           }
-           var country = $('input[name="country"]').val();
+
+          var country = $('input[name="country"]').val();
           if (country == "") {
             $("label#country_error").show();
             $("input#country").focus();
             return false;
           }
-          var month = $('input[name="month"]').val();
+
+          var month = $('#month').val();
           if (month == "") {
             $("label#month_error").show();
             $("input#month").focus();
@@ -160,20 +188,35 @@ $(document).ready(function(){
           }
           
           var pax = $('input[name="pax"]').val();
+          var pax_val= (pax).length;
+          if (pax_val != 2 && pax_val != 1) {
+            $("label#pax_error").show();
+            $("input#pax").focus();
+            return false;
+          }
           if (pax == "") {
             $("label#pax_error").show();
             $("input#pax").focus();
             return false;
           }
-           var mobile = $('input[name="mobile"]').val();
-          var mobile_val= (mobile).length;
           
+          var mobile = $('input[name="mobile"]').val();
+          var mobile_val= (mobile).length;
           if (mobile_val != 10 ){
              
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;
           }
+       
+        });
+
 </script>
 <!--/ middle -->
 <?php include("footer.php"); ?>

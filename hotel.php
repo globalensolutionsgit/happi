@@ -45,7 +45,7 @@
 			  mail($admin_email, "Contact Us Form", $comment, "From:" . $email);
 
 			  //Email response
-			  echo "Thank you for contacting us!";
+			   echo "Thank you for contacting us! Our representative will contact you.";
 			  }
 
 			  //if "email" variable is not filled out, display the form
@@ -70,26 +70,27 @@
 
                                 <div class="space"></div>
 
-                                <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                               <div class="row  alignleft">
+                                    <label><strong>Email</strong> </label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
                                     <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <label class="error1" for="email" id="email_error1" style="color:red;">Please enter the valid email</label>
                                 </div>
 
                                 <div class="clear"></div>
 
 								<div class="row alignleft">
 									<label><strong>Checkin</strong></label>
-									<input type="text" name="checkin" id="date_in" value="" class="inputtext_edit input_middle required">
-									<label class="error" for="checkin" id="checkin_error" style="color:red;">Please enter the email</label>
+									<input type="date" name="checkin" id="date_in" value="" class="inputtext_edit input_middle required">
+									<label class="error" for="checkin" id="checkin_error" style="color:red;">Please enter the checkin</label>
 								</div>
 
 								<div class="space"></div>
 
 								<div class="row  alignleft">
 									<label><strong>Checkout</strong></label>
-									<input type="text" id="date_out" name="checkout" value="" class="inputtext_edit input_middle required">
-									<label class="error" for="checkout" id="checkout_error" style="color:red;">Please enter the email</label>
+									<input type="date" id="date_out" name="checkout" value="" class="inputtext_edit input_middle required">
+									<label class="error" for="checkout" id="checkout_error" style="color:red;">Please enter the checkout</label>
 								</div>
 
 								<div class="clear"></div>
@@ -97,7 +98,7 @@
                                 <div class="row">
                                     <label><strong>City</strong></label>
                                     <input type="text" name="city" id="city" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="city" id="city_error" style="color:red;">Please enter the email</label>
+                                    <label class="error" for="city" id="city_error" style="color:red;">Please enter the City</label>
                                 </div>
 
 								<div class="clear"></div>
@@ -105,7 +106,7 @@
 								<div class="row alignleft">
 									<label><strong>Adult</strong></label>
 									<input type="text" name="adult" id="adult" value="" class="inputtext_edit input_middle required">
-									<label class="error" for="adult" id="adult_error" style="color:red;">Please enter the email</label>
+									<label class="error" for="adult" id="adult_error" style="color:red;">Please enter the adult</label>
 								</div>
 
 								<div class="space"></div>
@@ -113,7 +114,7 @@
 								<div class="row  alignleft">
 									<label><strong>Child</strong>(Below 12 years)</label>
 									<input type="text" id="child" name="child" value="" class="inputtext_edit input_middle required">
-									<label class="error" for="child" id="child_error" style="color:red;">Please enter the email</label>
+									<label class="error" for="child" id="child_error" style="color:red;">Please enter the child</label>
 								</div>
 
 								<div class="clear"></div>
@@ -122,6 +123,7 @@
 								<div class="row">
                                     <label><strong>Mobile NO.</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
+                                    <label class="error1" for="mobile" id="mobile_error1" style="color:red;">Please enter the valid mobile number</label>
                                     <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label>
                                 </div>
 
@@ -147,8 +149,10 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	$('.error').hide();
+  $('.error1').hide();
  $("#send").click(function(event){
          $('.error').hide();
+         $('.error1').hide();
           var name = $('input[name="yourname"]').val();
           if (name == "") {
             $("label#name_error").show();
@@ -159,11 +163,16 @@ $(document).ready(function(){
           var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
            if( !emailReg.test( email ) ) {
             
+            $("label#email_error1").show();
+            $("input#email").focus();
+            return false;
+          }
+         if (email == ""){
+
             $("label#email_error").show();
             $("input#email").focus();
             return false;
           }
-         
           var checkin = $('input[name="checkin"]').val();
           if (checkin == "") {
             $("label#checkin_error").show();
@@ -198,6 +207,12 @@ $(document).ready(function(){
           var mobile_val= (mobile).length;
           
           if (mobile_val != 10 ){
+              $("label#mobile_error1").show();
+              $("input#mobile").focus();
+              return false;
+          }
+          if (mobile == ""){
+            
               $("label#mobile_error").show();
               $("input#mobile").focus();
               return false;
