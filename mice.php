@@ -58,20 +58,20 @@
                             </div>
 
                             <div class="comment-form">
-                            <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
+                            <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>" id="mice">
 
 								<div class="row alignleft">
                                     <label><strong>Corporate Name/Company Name</strong></label>
                                     <input type="text" name="yourname" id="name" value="" class="inputtext input_middle required">
-                                     <label class="error" for="name" id="name_error" style="color:red;">Please enter the name.</label>
+                                     <!-- <label class="error" for="name" id="name_error" style="color:red;">Please enter the name.</label> -->
                                 </div>
 
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong></label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
-                                    <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label>
+                                    <!-- <label class="error" for="email" id="email_error" style="color:red;">Please enter the email</label> -->
                                 </div>
 
 								<div class="clear"></div>
@@ -79,7 +79,7 @@
 								<div class="row">
                                     <label><strong>Destination</strong></label>
                                     <input type="text" name="destination" id="destination" value="" class="inputtext input_full_edit required">
-                                     <label class="error" for="destination" id="destination_error" style="color:red;">Please enter the destination </label>
+                                     <!-- <label class="error" for="destination" id="destination_error" style="color:red;">Please enter the destination </label> -->
                                 </div>
 
 								<div class="clear"></div>
@@ -87,7 +87,7 @@
 								<div class="row">
                                     <label><strong>Number of Days</strong></label>
                                     <input type="text" name="days" id="days" value="" class="inputtext input_full_edit required">
-                                     <label class="error" for="days" id="days_error" style="color:red;">Please enter the days </label>
+                                     <!-- <label class="error" for="days" id="days_error" style="color:red;">Please enter the days </label> -->
                                 </div>
 
 								<div class="clear"></div>
@@ -95,7 +95,7 @@
 								<div class="row">
                                     <label><strong>Purpose for Travel</strong></label>
                                     <input type="text" name="purpose" id="purpose" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="purpose" id="purpose_error" style="color:red;">Please enter the purpose </label>
+                                    <!-- <label class="error" for="purpose" id="purpose_error" style="color:red;">Please enter the purpose </label> -->
                                 </div>
 
 								<div class="clear"></div>
@@ -103,7 +103,7 @@
 								<div class="row">
                                     <label><strong>Contact Number</strong></label>
                                     <input type="text" name="mobile" id="mobile" value="" class="inputtext input_full_edit required">
-                                    <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label>
+                                    <!-- <label class="error" for="mobile" id="mobile_error" style="color:red;">Please enter the mobile number </label> -->
                                 </div>
 
 								<div class="clear"></div>
@@ -111,12 +111,12 @@
 								<div class="row">
 									<label><strong>Contact Person</strong></label>
 									<input type="text" name="person" id="person" value="" class="inputtext input_full_edit required">
-									<label class="error" for="person" id="person_error" style="color:red;">Please enter the person </label>
+									<!-- <label class="error" for="person" id="person_error" style="color:red;">Please enter the person </label> -->
 								</div>
 
                                 <div class="row rowSubmit">
 	                                <input type="submit" id="send" value="Send Enquiry" class="btn-submit">
-	                                <a onclick="document.getElementById('commentForm').reset();return false" href="#" class="link-reset">Reset all fields</a>
+	                                <a onclick="document.getElementById('mice').reset();return false" href="#" class="link-reset">Reset all fields</a>
                              	</div>
                             </form>
                             </div>
@@ -132,62 +132,5 @@
         <div class="clear"></div>
     </div>
 </div>
-<script type="text/javascript">
-$(document).ready(function(){
-	$('.error').hide();
- $("#send").click(function(event){
-         $('.error').hide();
-          var name = $('input[name="yourname"]').val();
-          if (name == "") {
-            $("label#name_error").show();
-            $("input#name").focus();
-            return false;
-          }
-          var email = $('input[name="email"]').val();
-          var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
-           if( !emailReg.test( email ) ) {
-           
-            $("label#email_error").show();
-            $("input#email").focus();
-            return false;
-          }
-          
-          var destination = $('input[name="destination"]').val();
-          if (destination == "") {
-            $("label#destination_error").show();
-            $("input#destination").focus();
-            return false;
-          }
-          var days = $('input[name="days"]').val();
-          if (days == "") {
-            $("label#days_error").show();
-            $("input#days").focus();
-            return false;
-          }
-          var purpose = $('input[name="purpose"]').val();
-          if (purpose == "") {
-            $("label#purpose_error").show();
-            $("input#purpose").focus();
-            return false;
-          }
-          var mobile = $('input[name="mobile"]').val();
-          var mobile_val= (mobile).length;
-          
-          if (mobile_val != 10 ){
-             
-              $("label#mobile_error").show();
-              $("input#mobile").focus();
-              return false;
-          }
-          
-           var person = $('input[name="person"]').val();
-          if (person == "") {
-            $("label#person_error").show();
-            $("input#person").focus();
-            return false;
-          }
-          });
-});
-</script>
 <!--/ middle -->
 <?php include("footer.php"); ?>

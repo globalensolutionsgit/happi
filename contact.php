@@ -88,7 +88,7 @@
                             </div>
 
                             <div class="comment-form">
-                            <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>">
+                            <form method="POST" action="<?php echo $_SERVER['PHP_SELF']?>" id="contact_form">
 
                                 <div class="row alignleft">
                                     <label><strong>Name</strong></label>
@@ -99,18 +99,12 @@
                                 <div class="space"></div>
 
                                 <div class="row  alignleft">
-                                    <label><strong>Email</strong> (never published)</label>
+                                    <label><strong>Email</strong></label>
                                     <input type="text" id="email" name="email" value="" class="inputtext input_middle required">
                                     <label class="error" for="name" id="email_error" style="color:red;">Please enter the email</label>
                                 </div>
 
                                 <div class="clear"></div>
-
-                                <div class="row">
-                                    <label><strong>Website</strong></label>
-                                    <input type="text" name="url" id="url" value="" class="inputtext input_full">
-                                    <label class="error" for="url" id="url_error" style="color:red;">Please enter the url</label>
-                                </div>
 
                                  <div class="row">
                                     <label><strong>Comment</strong></label>
@@ -120,7 +114,7 @@
 
                                 <div class="row rowSubmit">
 	                                <input type="submit" value="Send Message" class="btn-submit" name="submit">
-	                                <a onclick="document.getElementById('commentForm').reset();return false" href="#" class="link-reset">Reset all fields</a>
+	                                <a onclick="document.getElementById('contact_form').reset();return false" href="#" class="link-reset">Reset all fields</a>
                              	</div>
                             </form>
                             </div>

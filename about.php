@@ -11,11 +11,11 @@
         <!--/ breadcrumbs -->
 
         <!-- content -->
-        <div class="content">
+        <div class="container_12">
 
             <!-- post details -->
         	<div class="post-detail">
-	       	    <h1>About our <span>Happi Journey</span></h1>
+	       	    <h1>About <span>Happi Journey</span></h1>
 
 	            <div class="entry">
 	           		<p><img src="images/home/aboutus.jpg" alt=""></p>

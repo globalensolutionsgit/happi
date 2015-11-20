@@ -62,6 +62,7 @@
 <!-- datepicker -->
 <link href="css/custom-theme/jquery-ui-1.8.20.custom.css" rel="stylesheet">
 <script src="js/jquery-ui-1.8.20.custom.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
 <script src="js/happi.js"></script>
 <script>
 	jQuery(document).ready(function($) {
